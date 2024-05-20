@@ -5,8 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>原神の色文字を簡単に作れるサイト</title>
 <style>
-  .header {
-    
+  #menubar {
+    display: block;
+    text-decoration: none;
+    padding-top: 0.8px;
+  }
+  #menubar ul {
+    list-style: none;
+    text-align: center;
+  }
+  #menubar li {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0px 2em;
+    font-size: x-large;
+    font-weight: 900;
+  }
+  #menubar a:link, #menubar a:visited, #menubar a:hover, #menubar a:active {
+    color: #696969 !important;
+    text-decoration: none;
+  }
+  #menubar a:hover {
+    color: #696969 !important;
+    text-decoration: underline;
   }
   body {
     font-family: Arial, sans-serif;
@@ -52,17 +74,14 @@
   }
 </style>
 </head>
-    <div class="header" align="center">
-    <header>
-  <nav>
-    <ul><a href="https://hei-ryo.github.io/main/">top</a>
-      <a href="https://hei-ryo.github.io/main/QRcode-generater/index.html">QRcode Generater</a>
-      <a href="https://hei-ryo.github.io/main/gccg/index.html">genshin color code generater</a>
+<body>
+    <nav id="menubar">
+    <ul>
+      <li><a href="https://hei-ryo.github.io/main/">トップ</a></li>
+      <li><a href="https://hei-ryo.github.io/main/QRcode-generater/index.html">QRコード生成機</a></li>
+      <li><a href="https://hei-ryo.github.io/main/gccg/index.html">原神の色文字生成機</a></li>
     </ul>
   </nav>
-</header>
-    </div>
-<body>
   <h1 style="text-align: center;">原神の色文字を簡単に作れるサイト</h1>
 <div class="container">
   <h2 class="input-label">色名またはカラーコード<br>（カラーコードの場合は # をつけてください）</h2>
