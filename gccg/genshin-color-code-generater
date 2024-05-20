@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原神の色文字を簡単に作れるサイト</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .input-label {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  .result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .image-container {
+    text-align: center; /* 画像を中央に配置 */
+  }
+</style>
+</head>
+<body>
+  <h1 style="text-align: center;">原神の色文字を簡単に作れるサイト</h1>
+<div class="container">
+  <h2 class="input-label">色名またはカラーコード<br>（カラーコードの場合は # をつけてください）</h2>
+  <input type="text" id="colorInput" class="input-field" placeholder="色名またはカラーコード">
+  <input type="text" id="customText" class="input-field" placeholder="カスタムテキスト">
+  <button onclick="generateColorText()" class="btn">生成</button>
+  <div id="result" class="result"></div>
+</div>
+
+<!-- 画像を挿入 -->
+<div class="image-container">
+  <img src="example.jpg" width="400">
+</div>
+
+<script>
+function generateColorText() {
+  var htmlString = "<ͣolor=#カラーコード>text</ͣolor>";
+  var colorInput = document.getElementById("colorInput").value;
+  var customText = document.getElementById("customText").value;
+  var newColorCode;
+
+  if (colorInput.startsWith("#") && (colorInput.length === 7 || colorInput.length === 4)) {
+    newColorCode = colorInput;
+  } else {
+    var colorCodes = {
+      "赤": "#FF0000",
+      "青": "#0000FF",
+      "緑": "#00FF00",
+      "黄色": "#FFFF00",
+      "オレンジ": "#FFA500",
+      "紫": "#800080",
+      "ピンク": "#FFC0CB",
+      "茶色": "#A52A2A",
+      "灰色": "#808080",
+      "シアン": "#00FFFF",
+      "マゼンタ": "#FF00FF",
+      "黒": "#000000",
+      "白": "#FFFFFF",
+      "ライトグレー": "#D3D3D3",
+      "ダークグレー": "#A9A9A9",
+      "シルバー": "#C0C0C0",
+      "金": "#FFD700",
+      "青緑": "#00CED1",
+      "ナバホホワイト": "#FFDEAD",
+      "ミディアムパープル": "#9370DB",
+      "シーブルー": "#2E8B57",
+      "スチールブルー": "#4682B4",
+      "ディープピンク": "#FF1493",
+      "サンディブラウン": "#F4A460",
+      "インディゴ": "#4B0082",
+      "レモンシフォン": "#FFFACD",
+      "オーキッド": "#DA70D6",
+      "ダークシアン": "#008B8B",
+      "アクア": "#00FFFF",
+    };
+
+    if (colorInput in colorCodes) {
+      newColorCode = colorCodes[colorInput];
+    } else {
+      document.getElementById("result").innerHTML = "指定された色名に対応するカラーコードがありません。";
+      return;
+    }
+  }
+
+  var pattern = /<ͣolor=#カラーコード>(.*?)<\/ͣolor>/;
+  var replacedString = htmlString.replace(pattern, '<ͣolor=' + newColorCode + '>' + customText + '</ͣolor>');
+  var finalString = replacedString.replace('#カラーコード', newColorCode) + '&lt;/ͣolor&gt;';
+  document.getElementById("result").innerHTML = finalString;
+}
+</script>
+
+</body>
+</html>
