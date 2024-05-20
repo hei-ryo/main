@@ -3,9 +3,31 @@
 <head>
   <title>QRコードジェネレーター</title>
   <style>
-    .header{
-      
-    }
+  #menubar {
+    display: block;
+    text-decoration: none;
+    padding-top: 0.8px;
+  }
+  #menubar ul {
+    list-style: none;
+    text-align: center;
+  }
+  #menubar li {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 0px 2em;
+    font-size: x-large;
+    font-weight: 900;
+  }
+  #menubar a:link, #menubar a:visited, #menubar a:hover, #menubar a:active {
+    color: #696969 !important;
+    text-decoration: none;
+  }
+  #menubar a:hover {
+    color: #696969 !important;
+    text-decoration: underline;
+  }
     body {
       text-align: center;
     }
@@ -16,17 +38,14 @@
     }
   </style>
 </head>
-  <div class="header" align="center">
-    <header>
-  <nav>
-    <ul><a href="https://hei-ryo.github.io/main/">top</a>
-      <a href="https://hei-ryo.github.io/main/QRcode-generater/index.html">QRcode Generater</a>
-      <a href="https://hei-ryo.github.io/main/gccg/index.html">genshin color code generater</a>
-    </ul>
-  </nav>
-</header>
-    </div>
 <body>
+  <nav id="menubar">
+  <ul>
+    <li><a href="https://hei-ryo.github.io/main/">トップ</a></li>
+    <li><a href="https://hei-ryo.github.io/main/QRcode-generater/index.html">QRコード生成機</a></li>
+    <li><a href="https://hei-ryo.github.io/main/gccg/index.html">原神の色文字生成機</a></li>
+  </ul>
+</nav>
   <h1>QRコードジェネレーター</h1>
   <input type="text" id="text-input" placeholder="テキストを入力">
   <button onclick="generateQRCode()">生成</button>
