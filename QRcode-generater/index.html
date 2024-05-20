@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QRコードジェネレーター</title>
+  <style>
+    /* CSSスタイル */
+    body {
+      text-align: center;
+      padding-top: 100px;
+    }
+    #qrcode {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <nav>
+    <ul>
+      <li><a href="https://www.amazon.co.jp/">amazon</a></li>
+    </ul>
+  </nav>
+</header>
+  <h1>QRコードジェネレーター</h1>
+  <input type="text" id="text-input" placeholder="テキストを入力">
+  <button onclick="generateQRCode()">生成</button>
+  <div id="qrcode"></div>
 
+  <script>
+    // JavaScriptコード
+    function generateQRCode() {
+      var text = document.getElementById('text-input').value;
+      var qrCodeDiv = document.getElementById('qrcode');
+
+      // QRコードを生成するためのURLを作成
+      var qrCodeUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=' + encodeURIComponent(text);
+
+      // QRコードを表示
+      qrCodeDiv.innerHTML = '<img src="' + qrCodeUrl + '" alt="QRコード">';
+    }
+  </script>
+</body>
+</html>
