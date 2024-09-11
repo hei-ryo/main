@@ -59,7 +59,7 @@
       var qrCodeDiv = document.getElementById('qrcode');
 
       // QRコードを生成するためのURLを作成
-      var qrCodeUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=' + encodeURIComponent(text);
+      var qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?date=' + encodeURIComponent(text);
 
       // QRコードを表示
       qrCodeDiv.innerHTML = '<img src="' + qrCodeUrl + '" alt="QRコード">';
